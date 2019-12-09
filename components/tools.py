@@ -14,13 +14,13 @@
 from components import config
 
 
-# ============================================================
-# * ... Vocab (tool)
-# ------------------------------------------------------------
-# Cette méthode permet de renvoyer les affichages
-# fréquents stockés dans notre dictionnaire et de simplement
-# gérer plusieurs langues.
-# ============================================================
+# ===================================================================
+# * ... Vocab (Computation)
+# -------------------------------------------------------------------
+# * ... Cette méthode permet de renvoyer les affichages
+# * ... fréquents stockés dans notre dictionnaire et de simplement
+# * ... gérer plusieurs langues.
+# ===================================================================
 
 
 def vocab(flag, lang=''):
@@ -41,10 +41,10 @@ def vocab(flag, lang=''):
 
 
 # =============================================================================
-# * ... Is String of Digits ? (tool)
-# -------------------------------------------------------------------------------
-# Cette méthode sert à vérifier si une chaîne de caractères ne contient
-# que des nombres entiers
+# * ... Is String of Digits ? (Command)
+# -----------------------------------------------------------------------------
+# * ... Cette méthode sert à vérifier si une chaîne de caractères ne contient
+# * ... que des nombres entiers
 # =============================================================================
 
 
@@ -66,12 +66,12 @@ def is_string_of_digits(s):
 
 
 # ===============================================================================
-# * ... Represent my Array (tool)
+# * ... Represent my Array (Effect)
 # -------------------------------------------------------------------------------
-# Cette méthode sert à créer la représentation de l'array.
+# * ... Cette méthode sert à créer la représentation de l'array.
 # ===============================================================================
 
-def represent_my_array(flag, key):
+def represent_my_array(flag, src):
     head = vocab('EnTeteTableau')
         
     if flag == 'indexlist':
@@ -87,11 +87,11 @@ def represent_my_array(flag, key):
         dynamic_display = config.OPT_DISPLAY and config.MAX_LINES > 0
 
         if dynamic_display:
-            distance = len(key)
+            distance = len(src)
             head *= 2 # * {UNSAFE} head *= times
-            times = (len(key) // config.MAX_LINES)
+            times = (len(src) // config.MAX_LINES)
 
-        stack = list(key)
+        stack = list(src)
         
         tail = []
         index = 0
@@ -112,8 +112,8 @@ def represent_my_array(flag, key):
 
                     dyn_index = index - 1 + (distance//2)
 
-                    if len(key) > dyn_index:
-                        element = key[dyn_index]
+                    if len(src) > dyn_index:
+                        element = src[dyn_index]
                         suffix = generate_line(element)
                         
                         # * ... Ajoute le suffixe à la ligne qui vient d'être générée.
@@ -127,17 +127,17 @@ def represent_my_array(flag, key):
 
         # * ... Si l'utilisateur a entré un index, on le convertit en nombre entier.
         if flag == 'index':
-            key = int(key)
+            src = int(src)
 
         # * ... Si l'utilisateur a entré un chr (on aurait aussi pu faire if flag == "chr"),
         # * ... on convertit son chr avec ord.
-        if not isinstance(key, int):
+        if not isinstance(src, int):
 
             # * ... Convertit la clé en index ANSI.
-            key = ord(key)
+            src = ord(src)
 
         tail = []
-        tail.append(generate_line(key))
+        tail.append(generate_line(src))
         return {'head': head, 'tail': tail}
 
 
@@ -150,11 +150,11 @@ def generate_line(index):
         character = config.ANSI_SYMBOLS[index]
     return [index, ascii(chr(index)), hexa, binary, character]
 
-# ===============================================================================
-# * ... Choice (command)
-# -------------------------------------------------------------------------------
-# Cette méthode permet de modéliser un choix et renvoie celui de l'utilisateur.
-# ===============================================================================
+# ========================================================================================
+# * ... Choice (Effect)
+# ----------------------------------------------------------------------------------------
+# * ... Cette méthode permet de modéliser un choix et renvoie celui de l'utilisateur.
+# ========================================================================================
 
 
 def choice(question, *args):
