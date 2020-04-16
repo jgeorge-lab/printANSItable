@@ -27,7 +27,7 @@ ANSI_SYMBOLS =  {
                  0:     'NUL',  1:   'SOH',          2:     'STX',
                  3:     'ETX',  4:   'EOT',          5:     'ENQ',
                  6:     'ACK',  7:   'BEL',          8:     'BS' ,
-                 9:    'HT' ,  10:  'LF' ,           11:    'VT' ,
+                 9:     'HT' ,  10:  'LF' ,          11:    'VT' ,
                  12:    'FF' ,  13:  'CR' ,          14:    'SO' ,
                  15:    'SI' ,  16:  'DLE',          17:    'DC1',
                  18:    'DC2',  19:  'DC3',          20:    'DC4',
