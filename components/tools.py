@@ -49,6 +49,8 @@ def vocab(flag, lang=''):
 
 
 def is_string_of_digits(s):
+    return s.isdigit() # * ... À l'époque j'avais oublié cette fonction... quel idiot ! :/
+    
     """Retourne True si tous les caractères d'une string sont bien des digits."""
     import re
 
